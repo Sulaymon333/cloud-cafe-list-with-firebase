@@ -37,8 +37,15 @@ form.addEventListener('submit', (e) => {
 
 // GET cafe data from firebase
 // db.collection('name') > get()> then(snapshot - callback function) > docs(array) > data()
-// db.collection('cafes').get().then((snapshot) => {
-db.collection('cafes').where('city', '>', 'Apple Island').get().then((snapshot) => {
+
+db.collection('cafes').get().then((snapshot) => {
+
+  /*=== tests ===*/
+  // db.collection('cafes').limit(2).get().then((snapshot) => {
+  // db.collection('cafes').orderBy('name').get().then((snapshot) => {
+  // db.collection('cafes').orderBy('city').get().then((snapshot) => {
+  // db.collection('cafes').where('city', '>', 'Apple Island').get().then((snapshot) => {
+  // db.collection('cafes').where('city', '>', 'Apple Island').orderBy('city').get().then((snapshot) => {
   snapshot.docs.forEach((doc) => {
     showCafes(doc)
   });
