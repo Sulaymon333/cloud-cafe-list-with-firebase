@@ -9,17 +9,27 @@ function showCafes(doc) {
     city
   } = doc.data();
   const li = document.createElement('li');
-  li.innerHTML = `<span>${name}</span><span>${city}</span><div>x</div>`;
+  li.innerHTML = `<span>${name}</span><span>${city}</span><div><i class="far fa-times-circle"></i></div>`;
   list.appendChild(li);
   li.setAttribute('data-id', doc.id);
 
   // delete button
-  const deleteButton = document.querySelector('li div');
-  deleteButton.addEventListener('click', (e) => {
-    e.stopPropagation();
-    let id = e.target.parentElement.getAttribute('data-id')
-    db.collection('cafes').doc(id).delete()
-  });
+  const deleteButtons = document.querySelectorAll('li div i');
+  deleteButtons.forEach((deleteButton) => {
+    deleteButton.addEventListener('click', (e) => {
+      e.stopPropagation();
+      let id = e.target.parentElement.parentElement.getAttribute('data-id');
+      db.collection('cafes').doc(id).delete();
+    });
+  })
+
+  // deleteButton.addEventListener('click', (e) => {
+  //   console.log('man');
+  //   e.stopPropagation();
+  //   let id = e.target.parentElement.getAttribute('data-id')
+  //   console.log(id);
+  //   db.collection('cafes').doc(id).delete()
+  // });
 }
 
 // Add data to firebase
