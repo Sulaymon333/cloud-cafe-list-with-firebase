@@ -22,14 +22,6 @@ function showCafes(doc) {
       db.collection('cafes').doc(id).delete();
     });
   })
-
-  // deleteButton.addEventListener('click', (e) => {
-  //   console.log('man');
-  //   e.stopPropagation();
-  //   let id = e.target.parentElement.getAttribute('data-id')
-  //   console.log(id);
-  //   db.collection('cafes').doc(id).delete()
-  // });
 }
 
 // Add data to firebase
