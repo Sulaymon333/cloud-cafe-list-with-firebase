@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Cafe list App</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+  <h1>Awesome cloud Cafe list</h1>
+  <div class="content">
+    <form action="" class="add-cafe-form">
+      <input type="text" name="name" placeholder="Cafe name">
+      <input type="text" name="city" placeholder="Cafe city">
+      <button>Add Cafe</button>
+    </form>
+    <ul class="cafe-list"></ul>
+  </div>
+
+
+  <!-- Insert scripts from firebase -->
+  <script src="https://www.gstatic.com/firebasejs/5.9.1/firebase-app.js"></script>
+  <!-- <script src="https://www.gstatic.com/firebasejs/5.9.1/firebase-auth.js"></script> -->
+  <script src="https://www.gstatic.com/firebasejs/5.9.1/firebase-firestore.js"></script>
+  <script>
+    // Initialize Firebase
+    var config = {
+      apiKey: "AIzaSyDmtEaKs8fiPkj7DKUIxqcBJDV9UvT_0Lc",
+      authDomain: "cafe-list-app-c861e.firebaseapp.com",
+      databaseURL: "https://cafe-list-app-c861e.firebaseio.com",
+      projectId: "cafe-list-app-c861e",
+      storageBucket: "cafe-list-app-c861e.appspot.com",
+      messagingSenderId: "47710631400"
+    };
+
+    firebase.initializeApp(config);
+
+    //make references to both firestore and auth
+    // const auth = firebase.auth();
+    const db = firebase.firestore();
+  </script>
+  <script src="app.js"></script>
+</body>
+
+</html>
